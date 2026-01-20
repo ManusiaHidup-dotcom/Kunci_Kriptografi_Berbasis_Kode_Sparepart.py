@@ -41,13 +41,13 @@ def decrypt_message(ciphertext, k1, k2, k3):
 st.set_page_config(page_title="Kripto Sparepart", page_icon="⚙️")
 
 st.title("⚙️ Aplikasi Enkripsi Berbasis Kode Sparepart")
-st.markdown("Aplikasi simulasi kriptografi menggunakan kunci **31600-KG1-920**")
+st.markdown("Aplikasi simulasi kriptografi menggunakan kunci **KODE SPAREPART KENDARAAN**")
 
 # Sidebar untuk Kunci (Default sesuai Makalah)
 st.sidebar.header("Konfigurasi Kunci")
-k1_input = st.sidebar.text_input("Kunci A (31600)", "3,1,6,0")
-k2_input = st.sidebar.text_input("Kunci B (KG1)", "10,6,1")
-k3_input = st.sidebar.text_input("Kunci C (920)", "9,2,0")
+k1_input = st.sidebar.text_input("Kunci A (Kode Pertama pada Sparepart anda)", "3,1,6,0")
+k2_input = st.sidebar.text_input("Kunci B (Kode Kedua pada Sparepart anda)", "10,6,1")
+k3_input = st.sidebar.text_input("Kunci C (Kode Ketiga pada Sparepart anda)", "9,2,0")
 
 # Parsing Kunci
 k1 = [int(x) for x in k1_input.split(",")]
@@ -70,4 +70,4 @@ with tab2:
         st.info(f"Pesan Asli: {asli}")
 
 st.divider()
-st.caption("Dibuat untuk memenuhi tugas makalah Kriptografi.")
+st.caption("Dibuat oleh Yudhistira Baskoro Adi Admojo 24.83.1094")
