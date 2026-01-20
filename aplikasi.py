@@ -43,16 +43,24 @@ st.set_page_config(page_title="Kripto Sparepart", page_icon="⚙️")
 st.title("⚙️ Aplikasi Enkripsi Berbasis Kode Sparepart")
 st.markdown("Aplikasi simulasi kriptografi menggunakan kunci **KODE SPAREPART KENDARAAN**")
 
+# Tambahan Pesan Perhatian di Header Utama
+st.warning("⚠️ **Perhatian!** Metode ini hanya bekerja pada kode sparepart yang memiliki 3 blok utama (Contoh: 31600-KG1-920).")
+
 # Sidebar untuk Kunci (Default sesuai Makalah)
 st.sidebar.header("Konfigurasi Kunci")
-k1_input = st.sidebar.text_input("Kunci A (Kode Pertama pada Sparepart anda)", "3,1,6,0")
-k2_input = st.sidebar.text_input("Kunci B (Kode Kedua pada Sparepart anda)", "10,6,1")
-k3_input = st.sidebar.text_input("Kunci C (Kode Ketiga pada Sparepart anda)", "9,2,0")
+st.sidebar.info("Gunakan koma (,) untuk memisahkan angka kunci.")
+
+k1_input = st.sidebar.text_input("Kunci A (Blok Pertama)", "3,1,6,0")
+k2_input = st.sidebar.text_input("Kunci B (Blok Kedua)", "10,6,1")
+k3_input = st.sidebar.text_input("Kunci C (Blok Ketiga)", "9,2,0")
 
 # Parsing Kunci
-k1 = [int(x) for x in k1_input.split(",")]
-k2 = [int(x) for x in k2_input.split(",")]
-k3 = [int(x) for x in k3_input.split(",")]
+try:
+    k1 = [int(x) for x in k1_input.split(",")]
+    k2 = [int(x) for x in k2_input.split(",")]
+    k3 = [int(x) for x in k3_input.split(",")]
+except:
+    st.sidebar.error("Input kunci harus berupa angka dan dipisahkan koma!")
 
 tab1, tab2 = st.tabs(["Enkripsi", "Dekripsi"])
 
